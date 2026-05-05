@@ -1,0 +1,26 @@
+function reverseBits(n) {
+    const strBinaryRev = n.toString(2).padStart(32 , '0').split('').reverse().join('') , base = 2;
+    let res = 0 , value = 0;
+    for (let i=0; i<strBinaryRev.length; i++) {
+        if (strBinaryRev.charAt(i) === '0') {continue;}
+        else {
+            value = parseInt(strBinaryRev.charAt(i)) * (Math.pow(base , strBinaryRev.length - i - 1));
+            res += value;
+        }
+    }
+    return res;
+}
+
+
+
+
+function reverseBits(n) {
+    let res = 0; // In bianrio 0000
+    for (let i=0; i<32; i++) {
+        // Prendo ultimo bit da n preparo spazio a sinistra e lo aggiungo poi lo tolgo da n e cosi via  
+        res = (res << 1) |  (n & 1);
+        n >>>= 1;
+        // faccio spazio per aggiungere questo bit al risultato 
+    }
+    return res >>> 0;
+}
