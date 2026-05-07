@@ -1,0 +1,14 @@
+class Solution {
+    isAnagram(s, t) {
+    const map = new Map();
+
+    for (let i=0; i<s.length; i++) {
+        map.set(s.charAt(i) , (map.get(s.charAt(i)) + 1) || 1);
+    }
+ 
+    for (let j=0; j<t.length; j++) {
+        map.set(t.charAt(j) , map.get(t.charAt(j)) - 1);
+    }
+    return Array.from(map.values()).every(val => val === 0);
+    }
+}
