@@ -1,0 +1,20 @@
+function duplicateEncode(word){
+  let res = '' , frequenze = new Map() , value = 0 , lowWord = word.toLowerCase();
+  const strGreater = ')' , strOlder = '(';
+  
+  for (let i=0; i<lowWord.length; i++) {
+    frequenze.set(lowWord.charAt(i) , frequenze.get(lowWord.charAt(i)) + 1 ||  1);
+  } 
+  
+    for (let j=0; j<lowWord.length; j++) {
+        value = frequenze.get(lowWord.charAt(j));
+        if (value === 1) {
+            res += strOlder;
+        }
+        else {
+            res += strGreater;
+        }
+    }
+  
+  return res;
+  }
